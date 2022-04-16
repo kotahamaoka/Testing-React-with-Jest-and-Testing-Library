@@ -1,11 +1,9 @@
 import { render, screen } from "../../../test-utils/testing-library-utils";
 
 import Options from "../Options";
-import ToppingOption from "../ToppingOption";
-import { OrderDetailsProvider } from "../../../contexts/OrderDetails";
 
 test("各スクープのオプションに対し画像を表示", async () => {
-  render(<Options optionType="scoops" />, { wrapper: OrderDetailsProvider });
+  render(<Options optionType="scoops" />);
 
   // 画像を見つける
   const scoopImages = await screen.findAllByRole("img", { name: /scoop$/i });
@@ -29,6 +27,6 @@ test("各トッピングのオプションに対し画像を表示", async () =>
   expect(imageTitles).toEqual([
     "Cherries topping",
     "M&Ms topping",
-    "Hot fudge topping",
+    "Hot Fudge topping",
   ]);
 });
